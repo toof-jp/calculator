@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 
@@ -12,10 +13,23 @@ int number(const string& s) {
   return ret;
 }
 
+int calc(const string& s) {
+  return number(s);
+}
+
+void test_calc() {
+  assert(calc("0") == 0);
+  assert(calc("3") == 3);
+  assert(calc("14") == 14);
+  assert(calc("1234") == 1234);
+}
+
 int main() {
+  test_calc();
+
   string s;
   cin >> s;
-  cout << number(s) << "\n";
+  cout << calc(s) << "\n";
 
   return 0;
 }
